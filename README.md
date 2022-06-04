@@ -6,3 +6,7 @@ chore-start:
   npm install --save-dev jest
 ```
 
+du: 
+  du -h --max-depth=1 | sort -rh
+
+
