@@ -13,6 +13,9 @@ du:
 
 ### postgresql:
 ```
-sudo -u postgres createuser --createdb name
+sudo -u postgres createuser --createdb nameRole
+
+dropuser nameRole
+createdb nameDB
 
 ```
