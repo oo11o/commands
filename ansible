@@ -1,1 +1,22 @@
- ansible all -i '111.141.210.111, ' -u root -m ping
+AD-HOC
+===========
+
+ansible all -i prod.ini -u root -m ping
+ 
+ansible all -i prod.ini -u root -m command -a 'uptime'
+#same
+ansible all -i prod.ini -u root -a 'uptime' 
+ 
+ansible elastic all -i prod.ini -u root -a 'uptime'
+ 
+ansible all --limit app -i inventory.ini -m ping
+
+
+#for local
+[local]
+localhost ansible_connection=local
+
+PLAYBOOK
+===========
+
+ansible-playbook playbook.yml -i inventory.ini
