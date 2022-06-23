@@ -20,3 +20,22 @@ PLAYBOOK
 ===========
 
 ansible-playbook playbook.yml -i inventory.ini
+
+YML
+===========
+
+- hosts: webservers
+
+  tasks:
+    - name: install redis server
+      ansible.builtin.apt:
+        name: redis-server
+        state: present
+        update_cache: yes
+      become: yes # <---
+
+    - name: remove redis server
+      ansible.builtin.apt:
+        name: redis-server
+        state: absent
+      become: yes # <-
