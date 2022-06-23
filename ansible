@@ -1,0 +1,1 @@
+ ansible all -i '111.141.210.111, ' -u root -m ping
