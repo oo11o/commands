@@ -24,7 +24,8 @@ ansible-playbook --check playbook.yml -i inventory.ini -t nginx
 #except tags
 ansible-playbook --check playbook.yml -i inventory.ini --skip-tags nginx 
 
-
+#inventory
+ansible-inventory -i inventory.ini --list
 
 YML
 ===========
