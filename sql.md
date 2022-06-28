@@ -3,6 +3,7 @@
 DROP TABLE IF EXISTS users CASCADE;
 
 ```
+### CREATE
 
 ```
 CREATE TABLE users (
@@ -22,3 +23,9 @@ CREATE TABLE order_items (
     good_id bigint REFERENCES goods(id)
 );
 ```
+
+### INSERT
+
+```
+INSERT INTO  brands (name, discount)
+VALUES ('bmw', 5), ('nissan', 5);
