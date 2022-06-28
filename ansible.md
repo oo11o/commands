@@ -18,8 +18,8 @@ localhost ansible_connection=local
 ```
 
 
-###PLAYBOOK
-###===========
+### PLAYBOOK
+### ===========
 ```
 ansible-playbook playbook.yml -i inventory.ini
 ansible-playbook --check playbook.yml -i inventory.ini -t nginx
@@ -30,8 +30,8 @@ ansible-playbook --check playbook.yml -i inventory.ini --skip-tags nginx
 ansible-inventory -i inventory.ini --list
 ```
 
-###YML
-###===========
+### YML
+### ===========
 ```
 - hosts: webservers
 
@@ -51,8 +51,8 @@ ansible-inventory -i inventory.ini --list
 ```
       
       
-###HANDLERS
-###====================
+### HANDLERS
+### ====================
 ```
 - hosts: webservers
   tasks:
