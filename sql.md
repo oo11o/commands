@@ -29,3 +29,20 @@ CREATE TABLE order_items (
 ```
 INSERT INTO  brands (name, discount)
 VALUES ('bmw', 5), ('nissan', 5);
+```
+
+### ALTER
+```
+• ADD - Add Constraints: Key Unique etc
+• SET - Set Column Value
+• DROP - Remove Constraints
+
+ALTER TABLES docs
+    ADD PRIMARY KEY (id)
+    ADD UNIQUE (name)
+    
+ALTER TABLES docs
+    ALTER COLUMN created SET DATA TYME timestamp
+    ALTER COLUMN theme DROP NOT NULL
+    
+```
