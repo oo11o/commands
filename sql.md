@@ -76,3 +76,10 @@ BEGIN;
     UPDATE accounts SET amount = amount + 50 WHERE user_id = 30;
 COMMIT;
 ```
+
+### EXPLAIN
+```
+EXPLAIN SELECT * FROM users
+  JOIN topics ON users.id = topics.user_id
+  WHERE users.created_at > '10.10.2018';
+```
