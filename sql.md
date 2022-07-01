@@ -67,10 +67,12 @@ SELECT
     ORDER BY year_of_birthday;
 ```
 
-### TRANSACTIO
+### TRANSACTION
 
+```
 BEGIN;
-SELECT amount FROM accounts WHERE user_id = 10;
-UPDATE accounts SET amount = amount - 50 WHERE user_id = 10;
-UPDATE accounts SET amount = amount + 50 WHERE user_id = 30;
+    SELECT amount FROM accounts WHERE user_id = 10;
+    UPDATE accounts SET amount = amount - 50 WHERE user_id = 10;
+    UPDATE accounts SET amount = amount + 50 WHERE user_id = 30;
 COMMIT;
+```
