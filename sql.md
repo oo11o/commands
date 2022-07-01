@@ -66,3 +66,11 @@ SELECT
     GROUP BY year_of_birthday
     ORDER BY year_of_birthday;
 ```
+
+### TRANSACTIO
+
+BEGIN;
+SELECT amount FROM accounts WHERE user_id = 10;
+UPDATE accounts SET amount = amount - 50 WHERE user_id = 10;
+UPDATE accounts SET amount = amount + 50 WHERE user_id = 30;
+COMMIT;
