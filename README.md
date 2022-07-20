@@ -5,9 +5,11 @@
   npm install --save-dev jest
   node --experimental-vm-modules node_modules/jest/bin/jest.js
   
-  file: .eslintrc 
+  file: .eslintrc
+    env:
+      jest: true
     extends: airbnb-base
-    jest: true
+   
 ```
 ## linux
 ```
