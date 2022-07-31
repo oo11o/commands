@@ -1,3 +1,12 @@
+#### postgresql:
+```
+sudo -u postgres createuser --createdb nameRole
+
+dropuser nameRole
+createdb nameDB
+
+```
+
 
 ```
 DROP TABLE IF EXISTS users CASCADE;
