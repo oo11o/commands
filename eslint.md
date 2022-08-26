@@ -19,3 +19,20 @@
 exports.serverError = (err, req, res, next) => res.render('500');
 /* eslint-enable no-unused-vars */
    
+##config .eslintrc
+
+```
+env:
+  browser: true
+  es2021: true
+  node: true
+  jest: true
+extends:
+  - 'airbnb-base'
+parserOptions:
+  ecmaVersion: latest
+  sourceType: module
+rules: {
+  "no-underscore-dangle": 'off'
+}
+```
