@@ -1,6 +1,8 @@
+ ``
   npm install --save-dev eslint eslint-config-airbnb-base eslint-plugin-import
   npm install --save-dev jest
   node --experimental-vm-modules node_modules/jest/bin/jest.js
+  ```
   
   file: .eslintrc
   ===================
