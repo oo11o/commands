@@ -1,0 +1,39 @@
+### MIN
+
+```
+npm i react react-dom
+
+npm i -D web-pack webpack-cli
+npm i -D babel-loader @babel/core
+npm i -D @babel/preset-env @babel/preset-react --save-dev
+
+
+.babelrc
+{
+  "presets": ["@babel/preset.env", "@babel/preset-react"]
+}
+
+
+webpack.json.js
+
+var path = require("path");
+
+module.exports = {
+    entry: "./src/index.js",
+    output: {
+        path: path.join(__dirname, "dist"),
+        filename: "main.js"
+    },
+    module: {
+        rules: [
+            {
+                test:/\.js$/, 
+                exclude: /node_module/,
+                loader: "babel-loader"
+            }
+        ]
+    }
+}
+
+
+```
