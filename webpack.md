@@ -297,3 +297,178 @@ npm install copy-webpack-plugin --save-dev
         })
 
 ```
+
+### 6. Compress CSS, HTML, JS
+```
+npm install --save-dev mini-css-extract-plugin
+
+
+
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+module.exports = {
+  plugins: [new MiniCssExtractPlugin()],
+  
+            =or=
+            new MiniCssExtractPlugin({
+                filename: '[name].[contenthash].css',
+             })
+  
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [{
+                 loader: MiniCssExtractPlugin.loader
+                 options: { }
+    
+            }, "css-loader"],
+      },
+    ],
+  },
+};
+
+
+========================
+=   Minimize HTML
+========================
+cross-env
+ "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack --mode development",
+    "build": "cross-env NODE_ENV=production webpack --mode production",
+    "watch": "cross-env NODE_ENV=development webpack --mode development --watch",
+    "start": "cross-env NODE_ENV=development webpack-dev-server --mode development"
+  },
+
+const isDev = process.env.NODE_ENV === 'development'
+
+[plugin]       
+       new HTMLWebpackPlugin({
+            template: './index.html',
+            minify: {
+                collapseWhitespace: !isDev
+            }
+        }),
+
+========================
+=   Minimize JS
+========================
+
+
+npm install terser-webpack-plugin --save-dev
+
+        config.minimizer =  [
+            new TerserWebpackPlugin()
+        ]
+        
+========================
+=   Minimize CSS
+========================
+
+npm install --save-dev mini-css-extract-plugin
+
+        config.minimizer =  [
+            new CssMinimizerPlugin(),
+            new TerserWebpackPlugin()
+        ]
+ 
+========================
+=  full
+========================
+
+const path = require('path');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const CopyWebPackPlugin = require('copy-webpack-plugin')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const TerserWebpackPlugin = require("terser-webpack-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+
+
+const isDev = process.env.NODE_ENV === 'development'
+console.log('IS DEV:', isDev);
+
+const optimization = () => {
+    const config = {
+         splitChunks: {
+           chunks: 'all'
+        }
+    }
+
+    if(!isDev) {
+        config.minimizer =  [
+            new CssMinimizerPlugin(),
+            new TerserWebpackPlugin()
+        ]
+    }
+
+    return config;
+} 
+
+module.exports = {
+    context: path.resolve(__dirname,'src'),
+    entry: {
+        main: './index.js',
+        analytics: './analytics.js'
+    },
+    
+    output: {
+        filename: '[name].[contenthash].js',
+        path: path.resolve(__dirname, 'dist')
+    },
+
+    optimization: optimization(),
+
+    devServer: {
+        open: true,
+        hot: true,
+        static: {
+            directory: path.join(__dirname, "src"),
+        }
+    },
+
+    plugins: [
+        new HTMLWebpackPlugin({
+            template: './index.html',
+            minify: {
+                collapseWhitespace: !isDev
+            }
+        }),
+        new CleanWebpackPlugin(),
+        new CopyWebPackPlugin({
+            patterns: [
+                {
+                    from: path.resolve(__dirname,'src/assets/favicon.ico'),
+                    to: path.resolve(__dirname, 'dist')
+                }
+           ]
+        }),
+        new MiniCssExtractPlugin({
+            filename: '[name].[contenthash].css',
+        })
+    ],
+
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                          
+                        }
+                    },
+                    'css-loader'
+                ]
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/i,
+                type: 'asset/resource',
+            },
+        ]
+    }
+}
+  
+```
+
