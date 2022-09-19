@@ -471,4 +471,39 @@ module.exports = {
 }
   
 ```
+### 7.sass
 
+npm install sass-loader sass webpack --save-dev
+
+            {
+                test: /\.s[ac]ss$/,
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {}
+                    },
+                    'css-loader',
+                    "sass-loader",
+                ]
+            },
+ ### 8. TS through Babel
+ 
+ npm install --save-dev babel-loader @babel/core
+ 
+ npm install --save-dev @babel/preset-env
+ npm install --save-dev @babel/preset-typescript
+ 
+             {
+                test: /\.ts$/,
+                exclude: /node_modules/,
+                use: {
+                  loader: "babel-loader",
+                  options: {
+                    presets: [
+                        "@babel/preset-env", 
+                        "@babel/preset-typescript"
+                    ]
+                  }
+                }
+            },
+ 
