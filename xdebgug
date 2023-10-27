@@ -1,3 +1,12 @@
+;zend_extension=xdebug.so
+;[xdebug]
+;xdebug.mode=develop,debug
+;xdebug.start_with_request=yes
+;xdebug.client_host=172.17.0.1
+;xdebug.port=9001
+;zend_extension=xdebug.so
+
+
 ; ============================ [auto tracking for v.3]
 ;xdebug.mode=trace
 ;xdebug.client_host=172.17.0.1
@@ -12,7 +21,7 @@
 
 
 ; ============================ [manual tracking v.3]
-; ============================ php 7.4 + 
+; ============================ work for 7.4 and high
 ;xdebug.mode=trace
 ;xdebug.client_host=172.17.0.1
 ;xdebug.client_port=9001
@@ -33,3 +42,58 @@
 ;xdebug.trace_enable_trigger=1
 ;xdebug.trace_output_dir=/tmp
 ;xdebug.trace_output_name=trace.%c
+
+
+; ============================ [auto tracking for v.3]
+;xdebug.mode=trace
+;xdebug.client_host=172.17.0.1
+;xdebug.client_port=9001
+;xdebug.idekey=PHPSTORM
+;
+;xdebug.start_with_request=yes
+;xdebug.connect_back=yes
+;xdebug.output_dir =/tmp
+;xdebug.trace_output_name=trace.%c
+
+
+
+; ============================ [manual tracking v.3]
+; ============================ work for 7.4 and high
+;xdebug.mode=trace
+;xdebug.client_host=172.17.0.1
+;xdebug.client_port=9001
+;xdebug.idekey=PHPSTORM
+;
+;xdebug.auto_trace=0
+;xdebug.trace_output_dir=/tmp
+;xdebug.trace_output_name=trace.%c'
+
+
+; ============================ [manual tracking v 2]
+;xdebug.remote_enable=1
+;xdebug.remote_host=172.17.0.1
+;xdebug.remote_port=9001
+;xdebug.idekey=PHPSTORM
+;
+;xdebug.auto_trace=0
+;xdebug.trace_enable_trigger=1
+;xdebug.trace_output_dir=/tmp
+;xdebug.trace_output_name=trace.%c
+
+
+; ============================ [traсе + debug + profile v2 (with plugin xdebug helper)]
+
+;xdebug.remote_enable=1
+;xdebug.remote_host=172.17.0.1
+;xdebug.remote_port=9001
+;xdebug.idekey=PHPSTORM
+;
+;xdebug.auto_trace=0
+;xdebug.trace_enable_trigger=1
+;xdebug.trace_output_dir=/tmp
+;xdebug.trace_output_name=trace.%c
+;
+;xdebug.profiler_enable=0
+;xdebug.profiler_enable_trigger=1
+;xdebug.profiler_output_dir=/tmp
+;xdebug.profiler_output_name=cachegrind.out.%p
